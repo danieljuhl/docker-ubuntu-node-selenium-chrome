@@ -10,8 +10,10 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 RUN apt-get -y install nodejs default-jre
 
-RUN wget http://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip
-RUN unzip chromedriver_linux64.zip && cp ./chromedriver /usr/bin/chromedriver && chmod ugo+rwx /usr/bin/chromedriver
+RUN wget http://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip
+RUN unzip chromedriver_linux64.zip
+RUN cp ./chromedriver /usr/bin/chromedriver
+RUN chmod ugo+rwx /usr/bin/chromedriver
 
 RUN apt-get -y install libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4
 
