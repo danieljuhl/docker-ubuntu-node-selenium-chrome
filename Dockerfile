@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 RUN apt-get update
 RUN apt-get -y dist-upgrade
-RUN apt-get -y install curl wget apt-utils gcc make build-essential sudo bzip2 unzip git
+RUN apt-get -y install curl wget apt-utils gcc make build-essential sudo bzip2 unzip git apt-transport-https
 
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee -a /etc/apt/sources.list
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
