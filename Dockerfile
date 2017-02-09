@@ -7,8 +7,9 @@ RUN apt-get -y install curl wget apt-utils gcc make build-essential sudo bzip2 u
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee -a /etc/apt/sources.list
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+# RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
