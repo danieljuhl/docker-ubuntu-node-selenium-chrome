@@ -6,9 +6,13 @@ RUN apt-get update && apt-get -y install curl wget apt-utils gcc make build-esse
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee -a /etc/apt/sources.list
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
-RUN apt-get -y install nodejs default-jre
+RUN apt-get update
+RUN apt-get -y install nodejs yarn default-jre
 
 RUN wget http://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip
 RUN unzip chromedriver_linux64.zip
@@ -30,4 +34,3 @@ RUN Xvfb -ac :0 -screen 0 1280x1024x16 &
 RUN export DISPLAY=:0
 
 RUN npm install -g nightwatch
-
